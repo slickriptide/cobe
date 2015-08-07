@@ -72,7 +72,7 @@ class LearnCommand:
 
         for filename in args.file:
             now = time.time()
-            print filename
+            print(filename)
 
             count = 0
             for line, progress in progress_generator(filename):
@@ -91,7 +91,7 @@ class LearnCommand:
                     b.graph.commit()
 
             elapsed = time.time() - now
-            print "\r100%% (%d/s)" % (count / elapsed)
+            print("\r100%% (%d/s)" % (count / elapsed))
 
         b.stop_batch_learning()
 
@@ -120,7 +120,7 @@ class LearnIrcLogCommand:
 
         for filename in args.file:
             now = time.time()
-            print filename
+            print(filename)
 
             count = 0
             for line, progress in progress_generator(filename):
@@ -150,7 +150,7 @@ class LearnIrcLogCommand:
                     b.reply(msg)
 
             elapsed = time.time() - now
-            print "\r100%% (%d/s)" % (count / elapsed)
+            print("\r100%% (%d/s)" % (count / elapsed))
 
         b.stop_batch_learning()
 
@@ -206,11 +206,11 @@ class ConsoleCommand:
             try:
                 cmd = raw_input("> ")
             except EOFError:
-                print
+                print("\n")
                 sys.exit(0)
 
             b.learn(cmd)
-            print b.reply(cmd).encode("utf-8")
+            print(b.reply(cmd).encode("utf-8"))
 
 
 class IrcClientCommand:
